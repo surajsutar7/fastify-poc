@@ -8,12 +8,12 @@ import { randomUUID } from 'node:crypto'
  * - Error handling using @fastify/sensible
  * - Auto-documentation via Swagger
  */
-export default async function (fastify, opts) {
+export default async function (fastify, _opts) {
     // In-memory data store for demonstration
     const users = new Map()
 
     // Add a route-specific hook for demo
-    fastify.addHook('onRequest', async (request, reply) => {
+    fastify.addHook('onRequest', async (request, _reply) => {
         fastify.log.info({ url: request.url }, 'Users route requested')
     })
 
@@ -29,7 +29,7 @@ export default async function (fastify, opts) {
                 }
             }
         }
-    }, async (request, reply) => {
+    }, async (_request, _reply) => {
         return Array.from(users.values())
     })
 

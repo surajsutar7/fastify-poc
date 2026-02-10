@@ -45,7 +45,7 @@ const start = async () => {
 
 // Graceful shutdown handling
 process.on('SIGINT', async () => {
-    console.log('\nGracefully shutting down...')
+    process.stdout.write('\nGracefully shutting down...\n')
     // Add cleanup logic here if needed (e.g. DB disconnect)
     process.exit(0)
 })
