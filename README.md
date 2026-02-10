@@ -10,7 +10,8 @@ A demonstration of a modern, production-ready Node.js API built with the Fastify
 -   **Environment Management**: Strict environment variable validation on startup using `@fastify/env`.
 -   **Error Handling**: Centralized, standardized error management with `@fastify/sensible`.
 -   **Observability**: High-performance logging with Pino and structured JSON outputs.
--   **Security**: Pre-configured CORS and standardized security headers.
+-   **Security**: Pre-configured CORS, standardized security headers, and rate limiting to prevent brute-force/DDoS attacks.
+-   **Rate Limiting**: Integrated `@fastify/rate-limit` with custom error responses.
 -   **Testing**: Comprehensive integration tests using `tap` and `fastify.inject()`.
 -   **Code Quality**: Integrated ESLint with a modern flat configuration for consistent code style and error prevention.
 
@@ -20,7 +21,7 @@ A demonstration of a modern, production-ready Node.js API built with the Fastify
 ├── src/
 │   ├── app.js            # Fastify App factory (Plugin/Route registration)
 │   ├── server.js         # Entry point (Server startup & Graceful shutdown)
-│   ├── plugins/         # Global plugins (cors, env, swagger, error-handler)
+│   ├── plugins/         # Global plugins (cors, env, swagger, rate-limit, error-handler)
 │   ├── routes/          # API Route handlers (organized by resource)
 │   └── schemas/         # Shared JSON schemas for validation/serialization
 ├── test/                # Integration and Unit tests
