@@ -12,6 +12,7 @@ A demonstration of a modern, production-ready Node.js API built with the Fastify
 -   **Observability**: High-performance logging with Pino and structured JSON outputs.
 -   **Security**: Pre-configured CORS and standardized security headers.
 -   **Testing**: Comprehensive integration tests using `tap` and `fastify.inject()`.
+-   **Code Quality**: Integrated ESLint with a modern flat configuration for consistent code style and error prevention.
 
 ## 📂 Project Structure
 
@@ -24,6 +25,7 @@ A demonstration of a modern, production-ready Node.js API built with the Fastify
 │   └── schemas/         # Shared JSON schemas for validation/serialization
 ├── test/                # Integration and Unit tests
 ├── .env                 # Environment configuration
+├── eslint.config.js     # Code quality rules
 └── package.json         # Scripts and dependencies
 ```
 
@@ -63,6 +65,18 @@ Once the server is running, visit the interactive Swagger UI:
 npm test
 ```
 
+### Linting
+
+**Check code quality:**
+```bash
+npm run lint
+```
+
+**Fix lint issues automatically:**
+```bash
+npm run lint:fix
+```
+
 ## 🧪 API Endpoints Demonstrated
 
 | Method | Endpoint      | Description                          |
@@ -80,3 +94,4 @@ npm test
 3.  **Startup Validation**: The application will fail fast if required environment variables are missing.
 4.  **Logging**: Contextual identifiers (like `reqId`) are automatically included in logs for request tracing.
 5.  **Standard Errors**: Every error response follows the same structure, making it easier for frontend integration.
+6.  **Static Analysis**: ESLint is configured to catch common bugs and enforce a consistent "clean code" standard across the team.
