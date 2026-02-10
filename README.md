@@ -12,8 +12,8 @@ A demonstration of a modern, production-ready Node.js API built with the Fastify
 -   **Observability**: High-performance logging with Pino and structured JSON outputs.
 -   **Security**: Pre-configured CORS, standardized security headers, and rate limiting to prevent brute-force/DDoS attacks.
 -   **Rate Limiting**: Integrated `@fastify/rate-limit` with custom error responses.
--   **Testing**: Comprehensive integration tests using `tap` and `fastify.inject()`.
--   **Code Quality**: Integrated ESLint with a modern flat configuration for consistent code style and error prevention.
+-   **Testing**: Dual testing strategy using both `tap` (existing) and `jest` (standard) for unit and integration tests.
+-   **Code Quality**: Integrated ESLint with a modern flat configuration.
 
 ## 📂 Project Structure
 
@@ -25,6 +25,8 @@ A demonstration of a modern, production-ready Node.js API built with the Fastify
 │   ├── routes/          # API Route handlers (organized by resource)
 │   └── schemas/         # Shared JSON schemas for validation/serialization
 ├── test/                # Integration and Unit tests
+│   ├── routes/          # Tap tests (Integration)
+│   └── jest/            # Jest tests (Unit & Integration)
 ├── .env                 # Environment configuration
 ├── eslint.config.js     # Code quality rules
 └── package.json         # Scripts and dependencies
@@ -62,8 +64,19 @@ Once the server is running, visit the interactive Swagger UI:
 
 ### Running Tests
 
+**Run all tests (Tap + Jest):**
 ```bash
 npm test
+```
+
+**Run Tap tests only:**
+```bash
+npm run test:tap
+```
+
+**Run Jest tests only:**
+```bash
+npm run test:jest
 ```
 
 ### Linting
